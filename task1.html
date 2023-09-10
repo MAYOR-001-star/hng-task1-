@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        html,body{
+            display: flex;
+            margin: 0 auto;
+            background-color:beige
+        }
+        img{
+            width: 25vw;
+            border-radius: 10px;
+        }
+        p{
+            text-align: center;
+        }
+        p[data-testid="slackUserName"]{
+            color: #3f51b5;
+            font-size: 3vw;
+        }
+        a:hover{
+            color: #ff0000;
+        }
+    </style>
+    <title>Task 1</title>
+</head>
+<body>
+    <div>
+        <p data-testid="slackUserName">Abdul-azeez Baruwa</p>
+        <img data-testid="slackDisplayImage" src="./Task 1/real.jpg" alt="">
+        <p data-testid="currentDayOfTheWeek"></p>
+        <p data-testid="currentUTCTime"></p>
+        <p data-testid="myTrack">Front End Web Development</p>
+        <p>
+            <a data-testid="githubURL" href="https://github.com/MAYOR-001-star/hng-task1" target="_blank">GITHUB</a>
+        </p>
+    </div>
+</body>
+<script>
+    function Day(){
+        const daysOfTheWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+        const today = new Date().getDay();
+
+        const currentDay = document.querySelector('[data-testid="currentDayOfTheWeek"]');
+        currentDay.innerHTML = daysOfTheWeek[today];
+    }
+    Day()
+
+    function Time(){
+        const currentUTCTime = new Date().toLocaleTimeString();
+        const currentTime = document.querySelector('[data-testid="currentUTCTime"]');
+        currentTime.innerHTML = currentUTCTime
+    }
+    Time();
+
+    setInterval(Time, 1000);
+</script>
+</html>
