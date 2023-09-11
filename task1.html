@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+no<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -31,7 +31,7 @@
         <p data-testid="slackUserName">Username: Abdul-azeez Baruwa</p>
         <img data-testid="slackDisplayImage" src="./displayImage.jpg" alt="Abdul-azeez Baruwa">
         <p data-testid="currentDayOfTheWeek"></p>
-        <p data-testid="currentUTCTime"></p>
+        <p>Current UTC Time in milliseconds: <span data-testid="currentUTCTime"></span></p>
         <p data-testid="myTrack">Front End Web Development</p>
         <p>
             <a data-testid="githubURL" href="https://github.com/MAYOR-001-star/hng-task1-" target="_blank">GITHUB</a>
@@ -48,13 +48,40 @@
     }
     Day()
 
-    function Time(){
-        const currentUTCTime = new Date().toLocaleTimeString();
-        const currentTime = document.querySelector('[data-testid="currentUTCTime"]');
-        currentTime.innerHTML = currentUTCTime
-    }
-    Time();
+    function updateUTCTime() {
+            var currentUTCTime = Date.now();
+            var element = document.querySelector('[data-testid="currentUTCTime"]');
+            element.textContent = currentUTCTime;
+        }
 
-    setInterval(Time, 1000);
+        // Initial update
+        updateUTCTime();
+
+        // Update the UTC time every second (1000 milliseconds)
+        setInterval(updateUTCTime, 1000);
 </script>
+</html>
+
+
+
+
+
+
+<p>Current UTC Time in milliseconds: <span data-testid="currentUTCTime"></span></p>
+
+    <script>
+        // Function to update the UTC time
+        function updateUTCTime() {
+            var currentUTCTime = Date.now();
+            var element = document.querySelector('[data-testid="currentUTCTime"]');
+            element.textContent = currentUTCTime;
+        }
+
+        // Initial update
+        updateUTCTime();
+
+        // Update the UTC time every second (1000 milliseconds)
+        setInterval(updateUTCTime, 1000);
+    </script>
+</body>
 </html>
